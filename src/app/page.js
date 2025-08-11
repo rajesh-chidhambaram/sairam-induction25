@@ -20,7 +20,7 @@ export default function Home() {
   // Clear messages when component mounts
   useEffect(() => {
     clearMessages();
-  }, []);
+  }, [clearMessages]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
@@ -33,7 +33,7 @@ export default function Home() {
             </h1>
             <div className="h-1 w-32 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto rounded-full mb-6"></div>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              Welcome to your journey at Sairam Institutions. Let's get you registered for the induction ceremony.
+              Welcome to your journey at Sairam Institutions. Let&apos;s get you registered for the induction ceremony.
             </p>
           </div>
 

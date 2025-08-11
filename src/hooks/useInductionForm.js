@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 
 const useInductionForm = () => {
   const [verified, setVerified] = useState(false);
@@ -11,10 +11,10 @@ const useInductionForm = () => {
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
-  const clearMessages = () => {
+  const clearMessages = useCallback(() => {
     setError("");
     setSuccessMessage("");
-  };
+  }, []);
 
   const verifyId = async (id) => {
     if (!id?.trim()) {

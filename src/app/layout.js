@@ -1,13 +1,13 @@
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
 export const metadata = {
   title: "Sairam Induction 2025 | Sairam Institutions",
   description: "Official induction portal for Sairam Institutions 2025. Register your admission ID and manage your accompanying family members for the induction ceremony.",
   keywords: "Sairam Institutions, Induction 2025, Admission, Registration, Chennai",
   authors: [{ name: "Sairam Institutions" }],
-  viewport: "width=device-width, initial-scale=1",
   robots: "index, follow",
   openGraph: {
     title: "Sairam Induction 2025",
@@ -25,11 +25,13 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className="font-sans antialiased min-h-screen flex flex-col">
-        <Navbar />
-        <main className="flex-1">
-          {children}
-        </main>
-        <Footer />
+        <ErrorBoundary>
+          <Navbar />
+          <main className="flex-1">
+            {children}
+          </main>
+          <Footer />
+        </ErrorBoundary>
       </body>
     </html>
   );
