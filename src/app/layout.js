@@ -2,6 +2,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import { Toaster } from "sonner";
 
 export const metadata = {
   title: "Sairam Induction 2025 | Sairam Institutions",
@@ -31,6 +32,7 @@ export default function RootLayout({ children }) {
             {children}
           </main>
           <Footer />
+          <Toaster position="top-right" richColors />
         </ErrorBoundary>
       </body>
     </html>

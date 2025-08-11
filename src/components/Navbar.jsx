@@ -1,10 +1,11 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Navbar() {
   return (
     <nav className="w-full bg-gradient-to-r from-[#10283d] to-[#1e3a5f] shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-center h-20">
+        <div className="flex items-center justify-between h-20">
           <div className="flex items-center space-x-4">
             <Image
               src="/image/sairam_logo.svg"
@@ -22,6 +23,14 @@ export default function Navbar() {
                 Induction Portal 2025
               </p>
             </div>
+          </div>
+          <div className="hidden md:block">
+            <Link
+              href="/dashboard/login"
+              className="text-blue-200 hover:text-white text-sm font-medium transition-colors duration-200"
+            >
+              Admin Dashboard
+            </Link>
           </div>
         </div>
       </div>

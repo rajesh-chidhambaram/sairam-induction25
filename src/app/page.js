@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
 import AdmissionIdForm from "@/components/forms/AdmissionIdForm";
 import AccompanyingCountForm from "@/components/forms/AccompanyingCountForm";
 import useInductionForm from "@/hooks/useInductionForm";
@@ -10,17 +9,9 @@ export default function Home() {
     verified,
     userDetails,
     loading,
-    error,
-    successMessage,
     verifyId,
-    updateAccompanyingCount,
-    clearMessages
+    updateAccompanyingCount
   } = useInductionForm();
-
-  // Clear messages when component mounts
-  useEffect(() => {
-    clearMessages();
-  }, [clearMessages]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
@@ -43,15 +34,12 @@ export default function Home() {
               <AdmissionIdForm
                 onVerify={verifyId}
                 loading={loading}
-                error={error}
               />
             ) : (
               <AccompanyingCountForm
                 userDetails={userDetails}
                 onUpdate={updateAccompanyingCount}
                 loading={loading}
-                error={error}
-                successMessage={successMessage}
               />
             )}
           </div>
