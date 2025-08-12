@@ -1,10 +1,9 @@
 import { useState } from "react";
 import Button from "../ui/Button";
 import Input from "../ui/Input";
-import Alert from "../ui/Alert";
 import Card from "../ui/Card";
 
-const AccompanyingCountForm = ({ userDetails, onUpdate, loading, error, successMessage }) => {
+const AccompanyingCountForm = ({ userDetails, onUpdate, loading }) => {
   const [accompanyingCount, setAccompanyingCount] = useState("");
   const [validationError, setValidationError] = useState("");
 
@@ -75,18 +74,6 @@ const AccompanyingCountForm = ({ userDetails, onUpdate, loading, error, successM
 
       {/* Accompanying Count Form */}
       <Card title="Update Accompanying Count">
-        {error && (
-          <Alert type="error" className="mb-6">
-            {error}
-          </Alert>
-        )}
-
-        {successMessage && (
-          <Alert type="success" className="mb-6">
-            {successMessage}
-          </Alert>
-        )}
-
         <form onSubmit={handleSubmit} className="space-y-6">
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Number of People Accompanying

@@ -1,9 +1,8 @@
 import { useState } from "react";
 import Button from "../ui/Button";
 import Input from "../ui/Input";
-import Alert from "../ui/Alert";
 
-const AdmissionIdForm = ({ onVerify, loading, error }) => {
+const AdmissionIdForm = ({ onVerify, loading }) => {
   const [id, setId] = useState("");
   const [validationError, setValidationError] = useState("");
 
@@ -53,12 +52,6 @@ const AdmissionIdForm = ({ onVerify, loading, error }) => {
           Enter your Admission ID to get started
         </p>
       </div>
-
-      {error && (
-        <Alert type="error" className="mb-6">
-          {error}
-        </Alert>
-      )}
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <Input
