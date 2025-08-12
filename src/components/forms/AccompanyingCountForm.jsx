@@ -46,6 +46,11 @@ const AccompanyingCountForm = ({ userDetails, onUpdate, loading, error, successM
     }
   };
 
+  // Decide button label based on current parentCount
+  const isAdding = userDetails.parentCount==0;
+  const buttonLabel = isAdding? "Add Count" : "Update Count";
+  const buttonLoadingLabel = isAdding? "Addinng..." : "Updating...";
+
   return (
     <div className="w-full max-w-2xl mx-auto space-y-6">
       {/* Welcome Card */}
@@ -83,17 +88,26 @@ const AccompanyingCountForm = ({ userDetails, onUpdate, loading, error, successM
         )}
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          <Input
-            label="Number of People Accompanying"
-            type="number"
-            min="0"
-            max="10"
-            placeholder="Enter number (0-10)"
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            Number of People Accompanying
+          </label>
+          <select
             value={accompanyingCount}
             onChange={handleChange}
-            error={validationError}
             required
-          />
+            className="w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
+          >
+          <option value="" disabled>Select count</option>
+          {[...Array(11)].map((_, i) => (
+              <option key={i} value={i}>
+                {i}
+              </option>
+            ))}
+          </select>
+          {validationError && (
+            <p className="mt-1 text-sm text-red-600">{validationError}</p>
+          )}
+
 
           <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
             <h4 className="font-medium text-yellow-800 mb-2">Important Guidelines:</h4>
@@ -112,7 +126,7 @@ const AccompanyingCountForm = ({ userDetails, onUpdate, loading, error, successM
             loading={loading}
             disabled={!accompanyingCount || loading}
           >
-            {loading ? "Updating..." : "Update Count"}
+            {loading ? buttonLoadingLabel : buttonLabel}
           </Button>
         </form>
       </Card>

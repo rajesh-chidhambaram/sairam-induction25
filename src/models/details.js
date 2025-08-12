@@ -27,6 +27,7 @@ const userDetailsSchema = new mongoose.Schema({
             message: 'Accompanying count must be a whole number'
         }
     },
+    
     createdAt: {
         type: Date,
         default: Date.now

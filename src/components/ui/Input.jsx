@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef,useId } from "react";
 
 const Input = forwardRef(({ 
   label,
@@ -10,7 +10,12 @@ const Input = forwardRef(({
   id,
   ...props 
 }, ref) => {
-  const inputId = id || `input-${Math.random().toString(36).substr(2, 9)}`;
+  //prev code doesn't has the same between SSR and client hydration.
+  //const inputId = id || `input-${Math.random().toString(36).substr(2, 9)}`;
+  //useId() ensures the same ID is generated on both server and client, so hydration won’t fail.
+  const reactId = useId();
+  const inputId = id || `input-${reactId}`;
+
   
   return (
     <div className={`w-full ${className}`}>

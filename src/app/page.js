@@ -29,7 +29,7 @@ export default function Home() {
           {/* Header */}
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              Sairam Induction 2025
+              Sairam Induction Day 2025
             </h1>
             <div className="h-1 w-32 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto rounded-full mb-6"></div>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
